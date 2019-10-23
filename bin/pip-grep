@@ -15,10 +15,6 @@ try:
 except:
     from pip._internal.req import parse_requirements
     from pip._internal.index import PackageFinder
-from pip._vendor.requests import session
-
-requests = session()
-
 
 class Requirements(object):
     def __init__(self, reqfile=None):
@@ -36,8 +32,8 @@ class Requirements(object):
         if not os.path.exists(reqfile):
             raise ValueError('The given requirements file does not exist.')
 
-        finder = PackageFinder([], [], session=requests)
-        for requirement in parse_requirements(reqfile, finder=finder, session=requests):
+        finder = PackageFinder([],[],False)
+        for requirement in parse_requirements(reqfile, finder=finder, session="no session"):
             if requirement.req:
                 if not getattr(requirement.req, 'name', None):
                     # Prior to pip 8.1.2 the attribute `name` did not exist.
