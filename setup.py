@@ -7,7 +7,7 @@ from setuptools import setup
 
 setup(
     name='pip-pop',
-    version='0.1.3',
+    version='0.2.7',
     url='https://github.com/kennethreitz/pip-pop',
     license='MIT',
     author='Kenneth Reitz',
@@ -18,7 +18,7 @@ setup(
     #include_package_data=True,
     zip_safe=False,
     platforms='any',
-    install_requires=['docopt', 'pip>=1.5.0'],
+    install_requires=['pip>=1.5.0'],
     tests_require=['tox'],
     classifiers=[
         # As from https://pypi.python.org/pypi?%3Aaction=list_classifiers
