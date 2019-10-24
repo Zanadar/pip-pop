@@ -8,6 +8,7 @@ Options:
   -h --help     Show this screen.
 """
 import os
+from docopt import docopt
 try:
     from pip.req import parse_requirements
     from pip.index import PackageFinder
@@ -61,7 +62,7 @@ def grep(reqfile, packages, silent=False):
 
 
 def main():
-    args = []
+    args = docopt(__doc__, version='pip-grep')
 
     kwargs = {'reqfile': args['<reqfile>'], 'packages': args['<package>'], 'silent': args['-s']}
 
